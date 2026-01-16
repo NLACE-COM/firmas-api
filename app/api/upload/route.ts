@@ -3,12 +3,11 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'edge';
 
-// Handler para preflight CORS
 export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
     headers: {
-      'Access-Control-Allow-Origin': 'https://firmas.lovable.app',
+      'Access-Control-Allow-Origin': 'https://firmas.nlace.com',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     },
@@ -35,7 +34,7 @@ export async function POST(request: Request) {
       success: true 
     }, {
       headers: {
-        'Access-Control-Allow-Origin': 'https://firmas.lovable.app',
+        'Access-Control-Allow-Origin': 'https://firmas.nlace.com',
       },
     });
   } catch (error) {
