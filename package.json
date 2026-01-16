@@ -1,0 +1,12 @@
+{
+    "name": "firmas-api",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "next": "14.2.5",
+        "@vercel/blob": "latest"
+    }
+}
