@@ -7,7 +7,7 @@ export async function OPTIONS() {
   return new NextResponse(null, {
     status: 200,
     headers: {
-      'Access-Control-Allow-Origin': 'https://firmas.nlace.com',
+      'Access-Control-Allow-Origin': 'https://www.firmo.email',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
       'Access-Control-Allow-Headers': 'Content-Type',
     },
@@ -18,23 +18,23 @@ export async function POST(request: Request) {
   try {
     const formData = await request.formData();
     const file = formData.get('file') as File;
-    
+
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
     }
 
     const filename = `${Date.now()}-${file.name}`;
-    
+
     const blob = await put(filename, file, {
       access: 'public',
     });
 
-    return NextResponse.json({ 
+    return NextResponse.json({
       url: blob.url,
-      success: true 
+      success: true
     }, {
       headers: {
-        'Access-Control-Allow-Origin': 'https://firmas.nlace.com',
+        'Access-Control-Allow-Origin': 'https://www.firmo.email',
       },
     });
   } catch (error) {
